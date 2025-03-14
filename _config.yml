@@ -1,13 +1,11 @@
+header_pages:
+  - README.md
+  - demo.md
+
 title: "GIF Display Project"
 author: "Logain Abdelhafiz & Pranav Rawat"
 description: "An interactive GIF display system using AWS and Adafruit OLED."
 show_downloads: false
-
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
-
-header_pages:
-  - README.md
-  - demo.md
-  - architecture.md
