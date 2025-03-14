@@ -8,4 +8,5 @@ plugins:
 
 header_pages:
   - index.md
+  - description.md
   - demo.md
