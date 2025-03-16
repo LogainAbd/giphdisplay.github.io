@@ -11,5 +11,6 @@ To **improve performance and responsiveness**, the system utilizes **Direct Memo
 
 ---
 
-[🔙 **Return to Home**](../index.md)
+## 🔙 Return to Main Page  
+[🔙 Return to Home](index.md)
 
