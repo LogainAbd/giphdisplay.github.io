@@ -55,7 +55,11 @@ The **system architecture** consists of several key components working together 
 - Enhances **user experience** by providing an **adaptive interface**.
 
 ### **📌 System Architecture Diagram**
-![System Architecture](assets/System_Architecture.png)
+# System Architecture 🏗️
+
+This diagram explains the architecture of our project.
+
+![System Architecture](assets/System%20Architecture.png)
 
 ---
 
@@ -82,7 +86,7 @@ The **state machine diagram** outlines the **step-by-step process** of how the s
 - The **accelerometer detects movement** and **adjusts the orientation dynamically**.
 
 ### **📌 State Machine Diagram**
-![State Machine](assets/State_Machine.png)
+![State Machine](assets/State%20Machine.png)
 
 ---
 
