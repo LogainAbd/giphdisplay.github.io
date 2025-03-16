@@ -122,4 +122,3 @@ By combining **hardware-software interaction, cloud-based data management, and r
 - **Pranav Rawat**
 
 ---
-
