@@ -71,4 +71,5 @@ Check out the full **video demo** of our project:
 
 ## ✨ **Acknowledgements**
 A special thanks to TA Randall Fowler for providing valuable feedback and support during implementation.
+
 ---
