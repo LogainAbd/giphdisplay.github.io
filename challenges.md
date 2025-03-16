@@ -27,7 +27,6 @@ A significant challenge was the **slow GIF playback speed**. Initially, renderin
 
 ✅ **Solution Implemented**:
 - Increased **SPI buffer speed** to **improve frame transfer rate**.
-- Explored **DMA-based rendering** to **reduce processing overhead**.
 - Adjusted **frame handling logic** to **minimize network delays**.
 
 While the playback is now much smoother, further improvements **using a dedicated framebuffer and optimized DMA transfers** could make it **even faster**.
