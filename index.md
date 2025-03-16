@@ -3,8 +3,7 @@ title: "GIF Display Project"
 layout: default
 ---
 
-# 🚀 GIF Display Project  
-
+# 🎥 GIF Display Project  
 📍 **University of California, Davis**  
 👨‍🏫 **Professor:** Soheil Ghiasi  
 🛠 **TA:** Randall Fowler  
@@ -15,87 +14,81 @@ layout: default
 
 ---
 
-## **📌 Project Description**  
-The **GIF Displayer Project** is an **embedded system application** that enables users to **search for, retrieve, and display GIFs** using a **CC3200 LaunchPad** and an **Adafruit OLED Display**. The system integrates **AWS services, Giphy API, and an accelerometer**, providing a **dynamic and interactive user experience**.  
-
-### **🔹 How It Works:**  
-✅ **User Input:** The TV remote and IR sensor allow users to **search for GIFs**.  
-✅ **Cloud Processing:** AWS Lambda handles **queries, retrieves GIFs**, and stores them in an **S3 bucket**.  
-✅ **GIF Selection & Display:** Users **choose a GIF**, which is processed and **displayed on the OLED screen**.  
-✅ **Screen Rotation:** The **accelerometer detects orientation changes**, adjusting the display accordingly.  
-✅ **Optimized Performance:** **Direct Memory Access (DMA)** ensures **smooth GIF playback** on **embedded hardware**.
-
-This project is a **powerful demonstration of cloud-enhanced embedded systems**, making GIF display possible in **low-power environments**.  
+## **📂 Project Overview**
+The **GIF Displayer Project** is an **embedded system application** that retrieves, processes, and displays **GIFs** using a **CC3200 LaunchPad** and an **Adafruit OLED Display**. The system is controlled via a **TV remote and IR sensor**, allowing users to **search for GIFs, select results, and display animations** on the **OLED screen**. To ensure smooth **real-time GIF retrieval and display**, the system **leverages AWS services**, including **AWS Lambda** and **S3 storage**. Additionally, an **accelerometer** enables **automatic screen rotation**, ensuring an **adaptive and user-friendly experience**.
 
 ---
 
-## **🏗 System Overview**  
-The **workflow** begins when a user enters a **search query** using the **TV remote**. This query is sent to the **CC3200 LaunchPad**, which processes the request and sends it to the **Giphy API** through **AWS Lambda**. The API returns a **list of GIF URLs**, which are stored in **AWS S3 Storage**. The user then **selects a GIF** from the menu, and the **LaunchPad fetches and displays the animation** on the **OLED display**.
+## **📑 Table of Contents**
+Click on any section below to navigate:
 
-To **improve performance and responsiveness**, the system utilizes **Direct Memory Access (DMA)** for **efficient frame rendering**, reducing latency and improving playback. Additionally, the **accelerometer** continuously monitors **device orientation** and **automatically rotates the display**, ensuring an optimal **viewing experience**.
+- [📜 Project Description](#project-description)
+- [🎥 Video Demo](#video-demo)
+- [🖥 System Architecture](#system-architecture)
+- [🔄 State Machine & Workflow](#state-machine--workflow)
+- [🛠 Implementation & Challenges](#implementation--challenges)
+- [🔮 Future Enhancements](#future-enhancements)
+- [🧾 Bill of Materials](#bill-of-materials)
+- [📢 Conclusion](#conclusion)
 
 ---
 
-## **🖥 System Architecture**  
+## **📜 Project Description**
+The **GIF Displayer Project** integrates **cloud computing and embedded systems** to enable **real-time GIF retrieval, processing, and display** on an **OLED screen**. By leveraging **AWS services**, the system efficiently **fetches GIFs from Giphy, stores them in S3, and processes them through AWS Lambda**, ensuring optimized playback. The **CC3200 LaunchPad** is the main processing unit, interacting with the **IR sensor, TV remote, accelerometer, and Adafruit OLED Display**.
+
+---
+
+## **🎥 Video Demo**
+Click below to watch the **full demonstration** of our project:
+
+📌 **[Watch the Demo](https://youtu.be/G5EnyKVmVwM)**
+
+---
+
+## **🖥 System Architecture**
 The **system architecture** consists of several key components working together to ensure **seamless GIF retrieval and display**:
 
 ### **🔹 TV Remote & IR Sensor**  
-- The **TV remote** acts as the primary user interface.  
-- The **IR sensor** captures signals from the remote and sends them as **GPIO interrupts** to the **CC3200 LaunchPad**.
+- The **TV remote** allows users to control the system.  
+- The **IR sensor** captures signals and sends them to the **CC3200 LaunchPad** via **GPIO interrupts**.
 
 ### **🔹 CC3200 LaunchPad**  
-- Serves as the **central processing unit** for the system.  
+- Acts as the **central processing unit**.  
 - **Processes user input**, **sends API requests**, **retrieves GIF data**, and **renders animations** on the OLED display.  
 - Communicates with the **Adafruit OLED via SPI** and with the **accelerometer via I2C**.
 
 ### **🔹 AWS Lambda & Giphy API**  
 - AWS Lambda serves as the **middleware** between the **CC3200 LaunchPad and Giphy API**.  
-- **Receives user queries**, **fetches relevant GIFs**, and **stores their URLs in S3**.  
+- **Receives user queries**, **fetches relevant GIFs**, and **stores their URLs in AWS S3 Storage**.  
 
 ### **🔹 Adafruit OLED Display**  
-- The **primary output** where **selected GIFs** are **displayed**.  
-- Works with **optimized frame rendering** to ensure smooth playback.
+- Displays **selected GIFs**, using **optimized frame rendering** for smooth playback.
 
 ### **🔹 Accelerometer**  
-- **Detects device orientation** and **adjusts the display** accordingly.  
+- **Detects device orientation** and **adjusts the display** dynamically.  
 - Enhances **user experience** by providing an **adaptive interface**.
 
-### **📌 Architecture Diagram**
-![System Architecture](assets/System%20Architecture.png)
+### **📌 System Architecture Diagram**
+![System Architecture](assets/System_Architecture.png)
 
 ---
 
 ## **🔄 State Machine & Workflow**
 The **state machine diagram** outlines the **step-by-step process** of how the system **retrieves and displays GIFs**:
 
-### **🚀 Step 1: User Input**  
-- The system **waits for user input** via the TV remote.  
-- The user **enters a search query**.
-
-### **🌐 Step 2: GIF Retrieval from AWS**  
-- The **query is sent to AWS Lambda**, which **fetches relevant GIFs from Giphy**.  
-- The GIF URLs are **stored in AWS S3 Storage**.
-
-### **📄 Step 3: GIF Selection**  
-- The system presents the **retrieved GIF URLs** in a **menu selection**.  
-- The user navigates the menu and selects a **desired GIF**.
-
-### **📲 Step 4: GIF Processing & Display**  
-- AWS Lambda **processes the GIF**, converting it into **RGB565 format** for **optimal display**.  
-- The CC3200 **renders the frames** and **displays the animation** on the OLED screen.
-
-### **🔄 Step 5: Dynamic Screen Rotation**  
-- The **accelerometer detects movement** and **adjusts the orientation dynamically**.
+1️⃣ **User Input**: The system **waits for user input** via the TV remote.  
+2️⃣ **GIF Retrieval from AWS**: The **query is sent to AWS Lambda**, which **fetches relevant GIFs from Giphy**.  
+3️⃣ **GIF Selection**: The system presents the **retrieved GIF URLs** in a **menu selection**.  
+4️⃣ **GIF Processing & Display**: AWS Lambda **processes the GIF** into **RGB565 format** for **optimal OLED display**.  
+5️⃣ **Dynamic Screen Rotation**: The **accelerometer detects movement** and **adjusts the orientation dynamically**.
 
 ### **📌 State Machine Diagram**
-![State Machine](assets/State%20Machine.png)
+![State Machine](assets/State_Machine.png)
 
 ---
 
 ## **🛠 Implementation & Challenges**
 ### **⚠️ Key Challenges & Solutions**
-The system faced **several design and implementation challenges**, which were resolved with **carefully designed solutions**:
-
 | **Challenge** | **Solution Implemented** |
 |--------------|----------------------|
 | **Efficient GIF Processing** | AWS Lambda **handles GIF retrieval & URL storage** |
@@ -106,19 +99,23 @@ The system faced **several design and implementation challenges**, which were re
 ---
 
 ## **🔮 Future Enhancements**
-To **further enhance** the project, the following features could be integrated:
+To further **enhance** the GIF Displayer Project, we propose several **cutting-edge improvements**:
 
-✨ **Voice Command Integration** – Enabling hands-free GIF search and selection.  
-🎨 **UI Enhancements** – Adding categorized GIF browsing for improved user experience.  
-⚡ **Optimized Animation Handling** – Further improving rendering efficiency to ensure smoother GIF playback.  
-💾 **Advanced Storage Optimization** – Enhancing AWS Lambda for **real-time GIF compression** to reduce storage needs.  
-📡 **Bluetooth/Wi-Fi Support** – Allowing **GIF sharing** between devices via wireless transmission.  
+### **🔊 Voice Command with Alexa**  
+We plan to **integrate Amazon Alexa voice commands**, allowing users to **search for GIFs, select results, and display them hands-free**. This feature would make the system more **accessible, convenient, and interactive**.
+
+### **📡 GIF Sharing Between Devices**  
+Instead of just displaying GIFs **locally**, the system could be expanded to **send GIFs to other OLED screens**. Using **AWS IoT communication**, multiple embedded devices could **synchronize animations in real-time**.
+
+### **⚡ DMA Optimization for Animation Rendering**  
+To further **improve GIF playback**, **advanced DMA techniques** will be implemented, ensuring **high-speed frame buffering, smooth animations, and minimal lag**.
+
+### **🌍 Multi-Device Synchronization**  
+With AWS Lambda and S3 storage, we can **synchronize playback** across **multiple embedded OLED devices**, allowing users to experience GIFs in a shared environment.
 
 ---
 
 ## **🧾 Bill of Materials**
-The following **hardware components** were used in the project:
-
 | **Component** | **Quantity** | **Source** |
 |--------------|------------|-----------|
 | CC3200 LaunchPad | 1 | Lab Kit ($66) |
@@ -130,9 +127,9 @@ The following **hardware components** were used in the project:
 ---
 
 ## **📢 Conclusion**
-The **GIF Displayer Project** successfully integrates **real-time GIF retrieval, cloud-based processing, and embedded display rendering** within a **constrained hardware environment**. This project highlights the **effective combination of embedded systems with cloud services**, demonstrating how **AWS and real-time processing can enhance small-scale displays**.
+The **GIF Displayer Project** successfully demonstrates **real-time GIF retrieval, cloud-based processing, and embedded display rendering** within a **constrained hardware environment**. The combination of **efficient hardware-software interaction, cloud-based data management, and real-time processing** makes this system a **novel and effective solution for GIF display**.
 
-This **professional solution** ensures **seamless GIF display and adaptive screen rotation**, providing a **smooth user experience**. The project serves as a strong foundation for **future embedded media display applications**.
+This project serves as a foundation for **future embedded media display applications**, with potential enhancements such as **voice integration, cross-device GIF sharing, and optimized DMA-based rendering**.
 
 ---
 
