@@ -40,3 +40,5 @@ Here are detailed flowcharts showing different parts of our system:
 ![State Machine](assets/state_machine.png)
 
 ---
+
+<link rel="stylesheet" href="assets/style.css">
