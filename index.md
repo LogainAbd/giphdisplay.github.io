@@ -125,13 +125,7 @@ This **professional solution** ensures **seamless GIF display and adaptive scree
 ---
 
 ### **🎓 Developed by:**
-💻 **Logain Abdelhafiz**  
 💻 **Pranav Rawat**  
+💻 **Logain Abdelhafiz**  
 
 ---
-
-### **📌 Final Steps**
-📌 **Copy & Paste** this into `index.md` (or your main page file).  
-📌 **Commit & Push Changes** on GitHub to **update the website**.  
-
-🚀 **After this, your website will be clean, structured, and professional!** 🚀  
