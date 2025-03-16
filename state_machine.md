@@ -20,5 +20,6 @@ The system follows this structured workflow:
 
 ---
 
-[🔙 **Return to Home**](../index.md)
+## 🔙 Return to Main Page  
+[🔙 Return to Home](index.md)
 
