@@ -37,4 +37,5 @@ To further **enhance playback smoothness**, we plan to:
 
 ---
 
-## 🔙 [⬅ Return to Main Page](/)
+## 🔙 Return to Main Page  
+[🔙 Return to Home](index.md)
