@@ -51,14 +51,12 @@ Check out the full **video demo** of our project:
 ## 📌 **Project Sections**
 🔹 Click on a section below to view details:
 
-- 🏗 [**System Overview**](system_overview.md)  
 - 🖥 [**System Architecture**](system_architecture.md)  
 - 🔄 [**State Machine & Workflow**](state_machine.md)  
 - 🛠 [**Implementation**](implementation.md)  
 - ⚠️ [**Challenges**](challenges.md)  
 - 🚀 [**Future Enhancements**](future_enhancements.md)  
 - 🧾 [**Bill of Materials**](bill_of_materials.md)  
-- 📢 [**Conclusion**](conclusion.md)  
 
 ---
 
