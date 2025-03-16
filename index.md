@@ -55,6 +55,3 @@ Check out the full **video demo** of our project:
 📄 [Read the Full Project Report](report.pdf)  
 
 ---
-
-## 🔙 **Return to Top**
-<a href="#GIF-Display-Project" style="display:inline-block; padding:10px 15px; background:#007bff; color:#fff; text-decoration:none; border-radius:5px;">⬆️ Back to Top</a>
