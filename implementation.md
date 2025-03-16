@@ -18,4 +18,4 @@ The system faced **several design and implementation challenges**, which were re
 ---
 
 ## 🔙 Return to Main Page  
-<a href="index.md" style="display:inline-block; padding:10px 15px; background:#007bff; color:#fff; text-decoration:none; border-radius:5px;">⬅️ Go Back to Homepage</a>
+[🔙 Return to Home](index.md)
