@@ -10,7 +10,8 @@ layout: default
 
 👨‍💻 **Developed by:**  
 - **Logain Abdelhafiz**  
-- **Pranav Rawat**  
+- **Pranav Rawat**
+- 📅 **Winter 2025 – University of California, Davis**   
 
 ---
 
@@ -70,8 +71,10 @@ Check out the full **video demo** of our project:
 
 ---
 
-## 🎯 **Navigation & Quick Access**
-💾 [View Source Code on GitHub](https://github.com/logainabd/giphdisplay.github.io)  
-📄 [Read the Full Project Report](report.pdf)  
+## ✨ **Acknowledgements**
+
+We would like to express our **sincere gratitude** to **Professor Soheil Ghiasi** for his guidance and expertise throughout the development of this project. A special thanks to **TA Randall Fowler** for providing valuable feedback and support during implementation.
+
+Additionally, we appreciate the **resources and facilities** provided by the **University of California, Davis** that enabled us to bring this project to life.
 
 ---
