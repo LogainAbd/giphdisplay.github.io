@@ -14,11 +14,17 @@ permalink: /architecture/
 5. The **GIF is displayed** on the **Adafruit OLED** screen.
 6. The **accelerometer** allows **rotation of the screen**.
 
-## **Architecture Diagram**
-![System Architecture](assets/architecture-diagram.png)
+# System Architecture 🏗️
 
-## **State Machine Diagram**
-Below is the project **state machine diagram**:
-![State Machine](assets/state-machine.png)
+This diagram explains the architecture of our project.
+
+![System Architecture](assets/System%20Architecture.png)
+
+
+# State Machine 🌀
+
+The state machine of our project works as follows:
+
+![State Machine](assets/State%20Machine.png)
 
 🔹 **Go back to [Home](index.md).**
