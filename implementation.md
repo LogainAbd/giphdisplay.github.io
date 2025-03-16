@@ -84,8 +84,5 @@ To **optimize performance**, we:
 
 ---
 
-### **[🔙 Return to Home](../index.md)**
-
-
 ## 🔙 Return to Main Page  
 [🔙 Return to Home](index.md)
