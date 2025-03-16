@@ -33,6 +33,5 @@ A significant challenge was the **slow GIF playback speed**. Initially, renderin
 While the playback is now much smoother, further improvements **using a dedicated framebuffer and optimized DMA transfers** could make it **even faster**.
 
 ---
-
 ## 🔙 Return to Main Page  
 [🔙 Return to Home](index.md)
