@@ -81,7 +81,6 @@ A **one-hot state machine** was used to manage state transitions, ensuring smoot
 To **optimize performance**, we:
 - **Limited GIF frames to 25** to reduce memory load.
 - Used **HTTP requests** to **pre-fetch GIF sizes**.
-- Implemented **DMA (Direct Memory Access)** for **smoother rendering**.
 
 ---
 
