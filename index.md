@@ -70,9 +70,5 @@ Check out the full **video demo** of our project:
 ---
 
 ## ✨ **Acknowledgements**
-
-We would like to express our **sincere gratitude** to **Professor Soheil Ghiasi** for his guidance and expertise throughout the development of this project. A special thanks to **TA Randall Fowler** for providing valuable feedback and support during implementation.
-
-Additionally, we appreciate the **resources and facilities** provided by the **University of California, Davis** that enabled us to bring this project to life.
-
+A special thanks to TA Randall Fowler for providing valuable feedback and support during implementation.
 ---
