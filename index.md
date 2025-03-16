@@ -15,9 +15,29 @@ layout: default
 ---
 
 ## 📌 **Project Overview**  
-The **GIF Displayer Project** is an embedded system that retrieves, processes, and displays **GIFs in real-time** using a **CC3200 LaunchPad** and an **Adafruit OLED display**. Users can interact with the system using a **TV remote and IR sensor**, searching for GIFs via the **Giphy API** and selecting them for display.
 
-To **enhance performance**, the system leverages **AWS Lambda, S3 storage, and DMA-based rendering**. Additionally, an **accelerometer** dynamically adjusts the screen orientation for **an adaptive viewing experience**.
+The **GIF Displayer** is an **interactive embedded system** that allows users to search for and display **animated GIFs** on an **Adafruit OLED display** using **Amazon Web Services (AWS)**. Designed for a **seamless user experience**, this system integrates **IR remote navigation, AWS-based GIF retrieval, and real-time animation playback** on a resource-constrained embedded device.
+
+---
+
+## 🔹 **How It Works**
+- Users **enter a search query** using a **TV remote** and **IR sensor**.
+- The **CC3200 LaunchPad** processes the request and communicates with **AWS Lambda**, which fetches **five relevant GIFs** from the **Giphy API**.
+- The retrieved **GIFs are displayed** as selectable options on the OLED screen.
+- The user **chooses a GIF** by pressing its number and the “OK” button.
+
+---
+
+## 🔄 **User Interaction & Controls**
+- After selecting a **GIF**, users can:
+  - **🔁 Play through** the GIF **frame-by-frame**.
+  - **🔙 Go back** to the search menu.
+  - **🎬 Pick another GIF** from the list.
+- The **accelerometer** detects **screen orientation**, allowing users to **rotate the display dynamically**.
+
+---
+
+This project demonstrates a **real-time multimedia experience on embedded hardware**, combining **efficient cloud-based data retrieval, responsive UI navigation, and smooth GIF rendering**.
 
 ---
 
