@@ -3,16 +3,21 @@ title: "GIF Display Project"
 layout: default
 ---
 
-# GIF Display Project 🎥
-An interactive GIF display system using AWS and Adafruit OLED.
+# 🎥 GIF Display Project
 
-<p align="center">
-  <a href="index.md">Home</a> |
-  <a href="demo.md">Demo</a> |
-  <a href="architecture.md">Architecture</a> |
-  <a href="hardware.md">Hardware</a> |
-  <a href="software.md">Software</a> |
-  <a href="acknowledgements.md">Acknowledgements</a> 
-</p>
+An interactive **GIF display system** using **AWS and Adafruit OLED**.
 
-<a href="https://github.com/LogainAbd/giphdisplay.github.io" class="btn btn-primary">View on GitHub</a>
+## **Project Overview**
+This project allows a user to search for GIFs using a **TV remote** and display them on an **Adafruit OLED** screen. The system utilizes:
+- **AWS Lambda** for GIF retrieval and processing.
+- **Giphy API** to find GIFs.
+- **CC3200 LaunchPad** for handling user inputs and communication.
+- **Adafruit OLED Display** for viewing GIFs.
+
+## **Project Objectives**
+1. Query and fetch GIFs using **AWS Lambda** and **Giphy API**.
+2. Display selected GIFs on **Adafruit OLED**.
+3. Implement **accelerometer-based screen rotation**.
+4. Achieve smooth GIF playback.
+
+For more details, see the **[System Architecture](architecture.md)** page.
