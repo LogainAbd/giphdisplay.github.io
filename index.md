@@ -111,6 +111,8 @@ To **further enhance** the project, the following features could be integrated:
 ✨ **Voice Command Integration** – Enabling hands-free GIF search and selection.  
 🎨 **UI Enhancements** – Adding categorized GIF browsing for improved user experience.  
 ⚡ **Optimized Animation Handling** – Further improving rendering efficiency to ensure smoother GIF playback.  
+💾 **Advanced Storage Optimization** – Enhancing AWS Lambda for **real-time GIF compression** to reduce storage needs.  
+📡 **Bluetooth/Wi-Fi Support** – Allowing **GIF sharing** between devices via wireless transmission.  
 
 ---
 
@@ -119,12 +121,11 @@ The following **hardware components** were used in the project:
 
 | **Component** | **Quantity** | **Source** |
 |--------------|------------|-----------|
-| CC3200 LaunchPad | 1 | Lab Kit |
-| Adafruit OLED Display | 1 | Lab Kit |
-| IR Sensor | 1 | Lab Kit |
-| TV Remote | 1 | Lab Kit |
+| CC3200 LaunchPad | 1 | Lab Kit ($66) |
+| Adafruit OLED Display | 1 | Lab Kit ($40) |
+| IR Sensor | 1 | Lab Kit ($2) |
+| TV Remote | 1 | Lab Kit ($10) |
 | AWS Services | N/A | AWS Account |
-| Accelerometer | 1 | Lab Kit |
 
 ---
 
