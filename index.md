@@ -1,3 +1,8 @@
+---
+title: "GIF Display Project"
+layout: default
+---
+
 # 🎥 GIF Display Project  
 📍 **University of California, Davis**  
 👨‍🏫 **Professor:** Soheil Ghiasi  
@@ -49,7 +54,7 @@ The **system architecture** consists of several key components working together 
 - **Detects device orientation** and **adjusts the display** accordingly.  
 - Enhances **user experience** by providing an **adaptive interface**.
 
-### **📌 Architecture Diagram**
+### **📌 System Architecture Diagram**
 ![System Architecture](assets/System_Architecture.png)
 
 ---
