@@ -10,7 +10,5 @@ The **workflow** begins when a user enters a **search query** using the **TV rem
 To **improve performance and responsiveness**, the system utilizes **Direct Memory Access (DMA)** for **efficient frame rendering**, reducing latency and improving playback. Additionally, the **accelerometer** continuously monitors **device orientation** and **automatically rotates the display**, ensuring an optimal **viewing experience**.
 
 ---
-
 ## 🔙 Return to Main Page  
 [🔙 Return to Home](index.md)
-
