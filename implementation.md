@@ -79,7 +79,7 @@ A **one-hot state machine** was used to manage state transitions, ensuring smoot
 - **GIF frames** were fetched from **S3 storage** and rendered **pixel-by-pixel** in **RGB565 format**.
 
 To **optimize performance**, we:
-- **Limited GIF frames to 25** to reduce memory load.
+- **Limited GIF frames to 20** to reduce memory load.
 - Used **HTTP requests** to **pre-fetch GIF sizes**.
 
 ---
