@@ -1,105 +1,92 @@
----
-title: "Implementation"
-layout: default
----
-
 # 🛠 Implementation
 
-## 📡 TV Remote and IR Sensor
-The TV remote was programmed with a specific TV code so that we could uniquely identify each button with our specific remote. By using our **Saleae Digital Logic Analyzer**, we were able to test and record each button’s corresponding output as a waveform and transform it into hexadecimal. This way, we could map each button to a **hexadecimal waveform** that can be identified by our **CC3200 board**.
+## **TV Remote and IR Sensor**
+The TV remote was programmed with a **specific TV code** so that each button could be uniquely identified. By using the **Saleae Digital Logic Analyzer**, we captured and analyzed the waveforms of button presses, converting them into hexadecimal format for recognition by the **CC3200 board**.
 
-The **IR sensor** was built in accordance with the **circuit diagram** provided by the manufacturer. The output of the sensor was connected to a **GPIO pin on the CC3200** in order to detect the waveforms as read by the Saleae. To detect these waveforms on the CC3200, we used a **GPIO interrupt handler**, which triggered on falling edges, and the **SysTick timer** to recognize whether a trigger corresponded to a **zero, one, or clear signal**. All other complexities were handled by the **CC3200 in button recognition**.
-
----
-
-## ☁️ AWS Integration  
-AWS served as the backbone of our prototype, handling interactions with the **GIPHY API** for storing and processing GIFs. Since the **TI CC3200** lacks the resources to process GIFs efficiently, we relied on **AWS services** like:
-
-- **AWS IoT Core (Things)**
-- **AWS S3 Buckets**
-- **AWS Lambda Functions**  
-
-### 🔹 **AWS IoT Core**
-AWS IoT Core was used to **detect when users made search queries or selected GIFs**. We created a **device shadow** and set up **message routing rules** to trigger different events based on the user’s input.
-
-- A **POST request** sent to our shadow contained **JSON-formatted search data**.  
-- **SQL-based message routing** forwarded this information to an **AWS Lambda function**.  
-- A **binary-encoded variable `getURL`** distinguished between **retrieving GIF URLs** (1) and **fetching the selected GIF** (0).  
-
-### 🔹 **AWS S3 Buckets**
-AWS S3 **stored** important data such as GIF URLs and **RGB565 frames**. To enable direct access from the **CC3200**, we **modified bucket permissions** to be **publicly accessible** via **HTTP GET requests**.
-
-**Example S3 Bucket Policy:**
-![S3 Bucket Policy](assets/image1.png)
-
-To enable the **bucket policy**, we **disabled public access restrictions** and changed the **object ownership settings** to **"bucket owner preferred."**
+The **IR sensor** was built based on the manufacturer’s circuit diagram. The output was connected to a **GPIO pin on the CC3200**, where a **GPIO interrupt handler** was used to detect signals. These signals were processed using a **SysTick timer**, allowing us to determine whether the trigger represented a **zero, one, or clear signal**. The CC3200 handled all button recognition internally.
 
 ---
 
-## 🖥 AWS Lambda Functions
-**AWS Lambda** managed **event-triggered processing** that the **CC3200** could not handle. We designed **three primary Lambda functions**:
+## **AWS Integration**
+AWS served as the **backbone** of our prototype, handling **GIF storage and processing**. We leveraged **AWS IoT Core, S3 Buckets, and Lambda Functions** to manage data flow between the **GIPHY API** and the **CC3200**.
 
-- **`findGifs_Giphy`** – Searches GIFs based on user queries.  
-- **`selectGIFfromGIPHY`** – Fetches the selected GIF for processing.  
-- **`gifConverter`** – Converts GIF frames into the **RGB565 format** for display.
+### **IoT Core**
+IoT Core was used to detect user actions, such as **search queries and GIF selection**. A **device shadow** was created, and **SQL-based message routing rules** were established to trigger different events. The **getURL** variable distinguished actions:
+- `getURL = 1` → Trigger **Lambda function** to retrieve GIF URLs.
+- `getURL = 0` → Retrieve **selected GIF** from the storage bucket.
 
-![AWS Lambda Functions](assets/image2.png)
+### **S3 Buckets**
+S3 Buckets stored all essential data, including **GIF URLs and processed RGB565 frames**. The **bucket permissions** were modified to **allow public access**, enabling direct **HTTP GET requests** from the **CC3200 board**.
 
-### 🔹 **findGifs_Giphy**
-This function **retrieves GIF URLs** from the **GIPHY API** after a **POST request** is made to AWS IoT Core with `getURL = 1`.  
-Example event payload from **CC3200**:
-![findGifs_Giphy Event](assets/image3.png)
+#### **Example S3 Bucket Policy**
+![Bucket Policy](assets/Bucket.png)
 
-### 🔹 **selectGIFfromGIPHY**
-When the user **selects a GIF**, this function **downloads the GIF** from the web and stores it in **AWS S3**.  
-Example event payload:
-![selectGIFfromGIPHY Event](assets/image4.png)
+To enable public access, we had to:
+1. **Disable public access restrictions**.
+2. **Set bucket ownership to "Bucket Owner Preferred"**.
+3. **Apply a policy to permit object access**.
 
-### 🔹 **gifConverter**
-Once a GIF is uploaded, **gifConverter** is triggered, processing each **GIF frame** and converting it into **RGB565 format** through **bit shifting**. The processed frames are then stored in **another S3 bucket**.  
-Example JSON input to Lambda:
-![gifConverter Event](assets/image5.png)
+### **Lambda Functions**
+Lambda functions were used to **trigger automated processes** and **handle data transformation**.
 
-The **Pillow library** was used to **resize and convert images to RGB565** while ensuring **Big Endian byte ordering**, which is required for the **Adafruit OLED Display**.
+#### **Lambda Functions Used**
+![Lambda Functions](assets/Lambda.png)
 
----
+Each function played a specific role:
 
-## 🎛 **TI CC3200 Board Implementation**  
+1️⃣ **findGifs_Giphy**  
+- Triggered when a **search query** was submitted (`getURL = 1`).
+- Called the **GIPHY API** and retrieved GIF URLs.
+- Stored retrieved URLs in an **S3 Bucket**.
 
-### 📡 **HTTP Request Handling**
-The **CC3200 board** sends **GET and POST requests** via **secure sockets** and an **HTTP client library**.  
-- **Secure Sockets**: Used for AWS IoT Core interactions.  
-- **HTTP Client Library**: Adapted from **TI SDK v1.5** for **GIF retrieval**.  
-- **GET Requests** were optimized to retrieve **byte/octet-stream** data from **AWS S3 buckets**.
+##### **Example Input for findGifs_Giphy**
+![findGifs_Giphy Event](assets/eventgif.png)
 
-**Key optimizations:**
-- Used **snprintf** for JSON message formatting.  
-- Limited **buffer size** to **2800 bytes** to handle large responses.  
-- **Reconnected to the WiFi access point** before every request to prevent **timeouts**.
+2️⃣ **selectGIFfromGIPHY**  
+- Triggered when a user **selected a GIF** (`getURL = 0`).
+- Downloaded the selected GIF and stored it in **S3**.
 
----
+##### **Example Input for selectGIFfromGIPHY**
+![selectGIFfromGIPHY Event](assets/selectGIF.png)
 
-## 📟 **User Interface & Menu Navigation**
-A **one-hot state machine** was implemented with the following states:
-- **MENU** – User enters a search query.
-- **SEND** – Query is sent to AWS Lambda.
-- **DISPLAY** – Selected GIF is displayed.
+3️⃣ **gifConverter**  
+- Processed the **selected GIF**, converting each frame to **RGB565** format.
+- Stored frames in a **new S3 bucket** for retrieval by the CC3200.
 
-To prevent **timing issues**, the **OLED display** was **updated only when necessary**, improving performance.
+##### **Example JSON Data Passed to Lambda**
+![JSON Data](assets/JSON.png)
 
 ---
 
-## 📱 **Accelerometer & OLED Display**
-The **Adafruit OLED display** renders **RGB565 GIF frames** retrieved via **HTTP GET requests**.  
-- **Each frame** is stored in a **data buffer** before being drawn to the screen.  
-- **Pixels are bit-shifted** into **16-bit RGB565 format**.  
-- **Screen orientation** is dynamically adjusted using **accelerometer readings**.  
+## **TI CC3200 Board**
+The CC3200 handled **HTTP requests, user interface logic, and display rendering**.
 
-### 🔹 **Optimizations**
-- **Limited GIF size** to **65x65 pixels** to reduce memory overhead.  
-- **Hard capped GIF frames at 25** to ensure smooth playback.
+### **HTTP Request Handling**
+- **Secure sockets** were used for **IoT Core requests**.
+- **HTTP Client Library** was used for **S3 bucket interactions**.
+- GET requests retrieved **RGB565 image frames** for display.
+
+### **Menu System**
+The **menu system** was structured with three main states:
+- **MENU:** User enters a search query.
+- **SEND:** Query is sent to AWS.
+- **DISPLAY:** User selects a GIF for playback.
+
+A **one-hot state machine** was used to manage state transitions, ensuring smooth **menu navigation and animation playback**.
+
+### **Accelerometer & OLED Display**
+- The **accelerometer** continuously monitored **device orientation**, adjusting the display as needed.
+- **GIF frames** were fetched from **S3 storage** and rendered **pixel-by-pixel** in **RGB565 format**.
+
+To **optimize performance**, we:
+- **Limited GIF frames to 25** to reduce memory load.
+- Used **HTTP requests** to **pre-fetch GIF sizes**.
+- Implemented **DMA (Direct Memory Access)** for **smoother rendering**.
 
 ---
+
+### **[🔙 Return to Home](../index.md)**
+
 
 ## 🔙 Return to Main Page  
 [🔙 Return to Home](index.md)
