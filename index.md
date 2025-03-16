@@ -3,7 +3,8 @@ title: "GIF Display Project"
 layout: default
 ---
 
-# 🎥 GIF Display Project  
+# 🚀 GIF Display Project  
+
 📍 **University of California, Davis**  
 👨‍🏫 **Professor:** Soheil Ghiasi  
 🛠 **TA:** Randall Fowler  
@@ -14,12 +15,17 @@ layout: default
 
 ---
 
-## **📌 Introduction**  
-The **GIF Displayer Project** is an **embedded system application** that retrieves, processes, and displays **GIFs** using a **CC3200 LaunchPad** and an **Adafruit OLED Display**. The project was designed to **enhance user interaction** with animated media while working within **hardware constraints**.  
+## **📌 Project Description**  
+The **GIF Displayer Project** is an **embedded system application** that enables users to **search for, retrieve, and display GIFs** using a **CC3200 LaunchPad** and an **Adafruit OLED Display**. The system integrates **AWS services, Giphy API, and an accelerometer**, providing a **dynamic and interactive user experience**.  
 
-The system is **controlled via a TV remote and an IR sensor**, allowing users to **search for GIFs, select results, and display animations** on the **OLED screen**. To ensure smooth **real-time GIF retrieval and display**, the system **leverages AWS services**, including **AWS Lambda** and **S3 storage**. Additionally, an **accelerometer** enables **automatic screen rotation**, ensuring an **adaptive and user-friendly experience**.
+### **🔹 How It Works:**  
+✅ **User Input:** The TV remote and IR sensor allow users to **search for GIFs**.  
+✅ **Cloud Processing:** AWS Lambda handles **queries, retrieves GIFs**, and stores them in an **S3 bucket**.  
+✅ **GIF Selection & Display:** Users **choose a GIF**, which is processed and **displayed on the OLED screen**.  
+✅ **Screen Rotation:** The **accelerometer detects orientation changes**, adjusting the display accordingly.  
+✅ **Optimized Performance:** **Direct Memory Access (DMA)** ensures **smooth GIF playback** on **embedded hardware**.
 
-This project showcases the **integration of cloud-based data management, efficient embedded processing, and interactive user control**, making it a novel **GIF display solution for resource-limited systems**.
+This project is a **powerful demonstration of cloud-enhanced embedded systems**, making GIF display possible in **low-power environments**.  
 
 ---
 
@@ -54,12 +60,8 @@ The **system architecture** consists of several key components working together 
 - **Detects device orientation** and **adjusts the display** accordingly.  
 - Enhances **user experience** by providing an **adaptive interface**.
 
-### **📌 System Architecture Diagram**
-# System Architecture 🏗️
-
-This diagram explains the architecture of our project.
-
-![System Architecture](assets/System%20Architecture.png)
+### **📌 Architecture Diagram**
+![System Architecture](assets/System_Architecture.png)
 
 ---
 
@@ -86,7 +88,7 @@ The **state machine diagram** outlines the **step-by-step process** of how the s
 - The **accelerometer detects movement** and **adjusts the orientation dynamically**.
 
 ### **📌 State Machine Diagram**
-![State Machine](assets/State%20Machine.png)
+![State Machine](assets/State_Machine.png)
 
 ---
 
