@@ -19,5 +19,6 @@ The **system architecture** consists of several key components working together 
 - **Accelerometer:** Adjusts the screen orientation dynamically.
 
 ---
-[🔙 **Return to Home**](../index.md)
+## 🔙 Return to Main Page  
+[🔙 Return to Home](index.md)
 
