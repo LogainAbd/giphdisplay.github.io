@@ -3,24 +3,38 @@ title: "Future Enhancements"
 layout: default
 ---
 
-# 🚀 Future Enhancements  
+# 🚀 Future Enhancements
 
-In the future, this system could be expanded with additional features:
-
-### **Voice-Controlled GIF Selection**  
-- By integrating **Alexa or Google Assistant**, users could **search for GIFs hands-free**.
-- A command such as _"Alexa, show me a cat GIF"_ could trigger the selection.
-- Additionally, the system could **send GIFs to another user's OLED screen**, enabling **remote sharing**.
-
-### **Enhanced UI & Categorization**  
-- Implementing a **category-based browsing system** for better navigation.
-- Users could **filter GIFs** by **mood, theme, or popularity**.
-
-### **Optimized GIF Playback**  
-- Implementing **advanced DMA optimization** to **improve rendering performance**.
-- Further **frame buffering techniques** could ensure **smoother playback**.
+While our project successfully implemented **real-time GIF retrieval and display**, we identified **key areas** that could further improve the **user experience**.
 
 ---
 
-## 🔙 Return to Main Page  
-<a href="index.md" style="display:inline-block; padding:10px 15px; background:#007bff; color:#fff; text-decoration:none; border-radius:5px;">⬅️ Go Back to Homepage</a>
+## 🗣 **Voice Command Integration with Alexa**
+A **major enhancement** would be to integrate **Alexa voice commands** for **GIF searching and selection**. Users could **verbally request a GIF**, and the system would:
+1. **Process the voice command** via AWS Alexa Skills.
+2. **Translate the request** into a search query for **Giphy API**.
+3. **Display the selected GIF** on the OLED screen.
+
+📌 **Potential Expansion**:  
+- **Send GIFs to another user’s OLED screen remotely** via **AWS IoT**.
+- **Enable voice-controlled navigation** through **GIF categories**.
+
+---
+
+## 🎨 **User Interface & Navigation Enhancements**
+The **current system** relies on a **TV remote** for navigation. To improve usability:
+- Implement a **graphical menu system** on the **OLED display**.
+- Add **a search history** feature, allowing users to **quickly reselect past GIFs**.
+- Improve **on-screen GIF titles & metadata** for better browsing.
+
+---
+
+## 🎞 **Optimized GIF Animation Handling**
+To further **enhance playback smoothness**, we plan to:
+- Implement **double buffering** to **preload frames** before displaying.
+- Fully utilize **DMA transfers** to **offload pixel rendering** from the CPU.
+- Cache **recently accessed GIFs** to **reduce redundant AWS requests**.
+
+---
+
+## 🔙 [⬅ Return to Main Page](/)
