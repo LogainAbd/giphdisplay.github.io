@@ -97,8 +97,7 @@ The **Adafruit OLED display** renders **RGB565 GIF frames** retrieved via **HTTP
 
 ### 🔹 **Optimizations**
 - **Limited GIF size** to **65x65 pixels** to reduce memory overhead.  
-- **Hard capped GIF frames at 25** to ensure smooth playback.  
-- Used **DMA for optimized frame rendering**.
+- **Hard capped GIF frames at 25** to ensure smooth playback.
 
 ---
 
